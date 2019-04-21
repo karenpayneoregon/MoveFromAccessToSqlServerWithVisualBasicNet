@@ -18,12 +18,12 @@ Public Class frmListBoxForm
     End Sub
     Private Sub frmListBoxForm_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
         If HasChanges Then
-            Dim ops As New DataOperations
+            Dim ops As New DataOperationsAccess
             ops.DoListBoxUpdates(CType(bsData.DataSource, DataTable))
         End If
     End Sub
     Private Sub frmListBoxForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        Dim ops As New DataOperations
+        Dim ops As New DataOperationsAccess
         bsData.DataSource = ops.LoadMusicalData()
         ListBox1.DisplayMember = "DisplayText"
         ListBox1.ValueMember = "Identifier"

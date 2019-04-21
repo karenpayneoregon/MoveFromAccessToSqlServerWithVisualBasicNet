@@ -53,7 +53,7 @@ Namespace Forms
         End Sub
         Private Sub SqlServerForm_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
             If HasChanges Then
-                Dim ops As New DataOperations
+                Dim ops As New DataOperationsAccess
                 Dim dt = CType(bsData.DataSource, DataTable)
                 dataOperations.UpdatePosition(CType(bsData.DataSource, DataTable))
             End If

@@ -8,7 +8,7 @@
 Public Class frmTextFileForm
     WithEvents bsData As New BindingSource
     Private Sub Form2_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        Dim ops As New DataOperations
+        Dim ops As New DataOperationsAccess
         Dim dt = ops.LoadCustomersTextFileForm()
 
         bsData.DataSource = dt

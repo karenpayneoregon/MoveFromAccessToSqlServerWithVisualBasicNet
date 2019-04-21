@@ -17,13 +17,13 @@ Public Class frmAccessForm
     ''' <remarks></remarks>
     Private Sub Form1_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
         If HasChanges Then
-            Dim ops As New DataOperations
+            Dim ops As New DataOperationsAccess
             Dim dt = CType(bsData.DataSource, DataTable)
             ops.UpdatePositionMsAccess(CType(bsData.DataSource, DataTable))
         End If
     End Sub
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        Dim ops As New DataOperations
+        Dim ops As New DataOperationsAccess
         DataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToFirstHeader
         DataGridView1.EnableHeadersVisualStyles = False
 
