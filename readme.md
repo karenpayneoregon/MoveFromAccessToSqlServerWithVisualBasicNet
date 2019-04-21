@@ -1,4 +1,4 @@
-### Moving from MS-Acces to SQL-Server with VB.NET
+### Moving from MS-Access to SQL-Server with VB.NET
 
 Within this repository contains an ever-increasing number of projects walkthroughs for taking VB.NET code working with MS-Access data operations to working with SQL-Server data operations. The objective for these code samples is to provide a path for developers to migrate MS-Access solutions to SQL-Server for Windows Forms, WPF and finally web solutions.
 
