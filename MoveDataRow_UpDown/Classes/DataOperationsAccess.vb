@@ -101,7 +101,9 @@ Namespace Classes
                     </SQL>.Value
 
                     Dim dt As New DataTable
+
                     cn.Open()
+
                     dt.Load(cmd.ExecuteReader)
                     dt.Columns("CustomerIdentifier").ColumnMapping = MappingType.Hidden
                     dt.Columns("RowPosition").ColumnMapping = MappingType.Hidden
@@ -121,27 +123,31 @@ Namespace Classes
                     cmd.CommandText =
                         <SQL>
                         UPDATE Customer 
-                        SET Customer.RowPosition = @P1
-                        WHERE (((Customer.Identifier)=@P2));
+                        SET Customer.RowPosition = @RowPosition
+                        WHERE (((Customer.Identifier) = @Identifier));
                     </SQL>.Value
 
-                    cmd.Parameters.Add(New OleDbParameter With {.ParameterName = "@P1", .OleDbType = OleDbType.Integer})
-                    cmd.Parameters.Add(New OleDbParameter With {.ParameterName = "@P2", .OleDbType = OleDbType.Integer})
+                    cmd.Parameters.Add(New OleDbParameter With
+                        {.ParameterName = "@RowPosition", .OleDbType = OleDbType.Integer})
+
+                    cmd.Parameters.Add(New OleDbParameter With
+                        {.ParameterName = "@Identifier", .OleDbType = OleDbType.Integer})
+
                     cn.Open()
 
                     Dim Position As Integer = 0
 
                     For rowIndex As Integer = 0 To dt.Rows.Count - 1
                         Position = rowIndex + 1
-                        cmd.Parameters("@P1").Value = Position
-                        cmd.Parameters("@P2").Value = dt.Rows(rowIndex).Field(Of Integer)("Identifier")
+                        cmd.Parameters("@RowPosition").Value = Position
+                        cmd.Parameters("@Identifier").Value = dt.Rows(rowIndex).Field(Of Integer)("Identifier")
                         cmd.ExecuteNonQuery()
                     Next
                 End Using
             End Using
         End Sub
         Public Sub UpdatePositionSqlServer(dt As DataTable)
-            Using cn As New OleDb.OleDbConnection With
+            Using cn As New OleDbConnection With
                 {
                 .ConnectionString = Builder.ConnectionString
                 }
@@ -149,20 +155,20 @@ Namespace Classes
                     cmd.CommandText =
                         <SQL>
                         UPDATE Customer 
-                        SET Customer.RowPosition = @P1
-                        WHERE CustomerIdentifier=@P2;
+                        SET Customer.RowPosition = @RowPosition
+                        WHERE CustomerIdentifier = @Identifier;
                     </SQL>.Value
 
-                    cmd.Parameters.Add(New OleDbParameter With {.ParameterName = "@P1", .OleDbType = OleDbType.Integer})
-                    cmd.Parameters.Add(New OleDbParameter With {.ParameterName = "@P2", .OleDbType = OleDbType.Integer})
+                    cmd.Parameters.Add(New OleDbParameter With {.ParameterName = "@RowPosition", .OleDbType = OleDbType.Integer})
+                    cmd.Parameters.Add(New OleDbParameter With {.ParameterName = "@Identifier", .OleDbType = OleDbType.Integer})
 
                     cn.Open()
 
                     Dim Position As Integer = 0
                     For rowIndex As Integer = 0 To dt.Rows.Count - 1
                         Position = rowIndex + 1
-                        cmd.Parameters("@P1").Value = Position
-                        cmd.Parameters("@P2").Value = dt.Rows(rowIndex).Field(Of Integer)("CustomerIdentifier")
+                        cmd.Parameters("@RowPosition").Value = Position
+                        cmd.Parameters("@dentifier").Value = dt.Rows(rowIndex).Field(Of Integer)("CustomerIdentifier")
                         cmd.ExecuteNonQuery()
                     Next
                 End Using
@@ -185,14 +191,14 @@ Namespace Classes
                         WHERE Identifier=P2
                     </SQL>.Value
 
-                    Dim P1 As New OleDbParameter With {.DbType = DbType.Int32}
-                    Dim P2 As New OleDbParameter With {.DbType = DbType.Int32}
+                    Dim displayIndexParameter As New OleDbParameter With {.DbType = DbType.Int32}
+                    Dim primaryKeyParameter As New OleDbParameter With {.DbType = DbType.Int32}
 
-                    cmd.Parameters.AddRange(New OleDbParameter() {P1, P2})
+                    cmd.Parameters.AddRange(New OleDbParameter() {displayIndexParameter, primaryKeyParameter})
 
                     For rowIndex As Integer = 0 To dt.Rows.Count - 1
-                        P1.Value = dt.Rows(rowIndex).Item("DisplayIndex")
-                        P2.Value = dt.Rows(rowIndex).Item("Identifier")
+                        displayIndexParameter.Value = dt.Rows(rowIndex).Item("DisplayIndex")
+                        primaryKeyParameter.Value = dt.Rows(rowIndex).Item("Identifier")
                         cmd.ExecuteNonQuery()
                     Next
                 End Using
@@ -208,7 +214,7 @@ Namespace Classes
             dt.Columns.Add(New DataColumn With {.ColumnName = "ContactName", .DataType = GetType(String)})
             dt.Columns.Add(New DataColumn With {.ColumnName = "ContactTitle", .DataType = GetType(String)})
 
-            Dim Lines = IO.File.ReadAllLines(Path.Combine(Application.StartupPath, "Data.txt"))
+            Dim Lines = File.ReadAllLines(Path.Combine(Application.StartupPath, "Data.txt"))
 
             For Each line In Lines
                 dt.Rows.Add(line.Split(",".ToCharArray))

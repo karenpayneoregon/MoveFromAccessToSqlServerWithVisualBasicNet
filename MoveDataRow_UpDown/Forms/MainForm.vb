@@ -1,8 +1,28 @@
 ﻿Namespace Forms
     Public Class MainForm
-
-        Private Sub cmdFromDatabase_Click(ByVal sender As Object, ByVal e As EventArgs) Handles cmdFromDatabase.Click
+        ''' <summary>
+        ''' Shows move/up down rows for MS-Access
+        ''' </summary>
+        ''' <param name="sender"></param>
+        ''' <param name="e"></param>
+        Private Sub cmdFromAccessDatabase_Click(ByVal sender As Object, ByVal e As EventArgs) Handles cmdFromAccessDatabase.Click
             Dim f As New frmAccessForm
+
+            Try
+                f.ActiveControl = f.DataGridView1
+                f.ShowDialog()
+            Finally
+                f.Dispose()
+            End Try
+        End Sub
+        ''' <summary>
+        '''  Shows move/up down rows for SQL-Server
+        ''' </summary>
+        ''' <param name="sender"></param>
+        ''' <param name="e"></param>
+        Private Sub cmdFromSqlServerDatabase_Click(sender As Object, e As EventArgs) Handles cmdFromSqlServerDatabase.Click
+
+            Dim f As New SqlServerForm
 
             Try
                 f.ActiveControl = f.DataGridView1
