@@ -13,11 +13,13 @@ The first project in this respository is well out of place as it's much more adv
 #### Requirements
 - Basic knowledge working with databases, for basic syntax see [the following page](https://www.w3schools.com/sql/default.asp).
 - Microsoft [Visual Studio](https://visualstudio.microsoft.com/) 2017 or higher
+- Target Framework 4.5 or higher
 - Microsoft [SQL-Server 2012](https://www.microsoft.com/en-us/sql-server/sql-server-2017?&OCID=AID739534_SEM_qJcWCEdr&MarinID=sqJcWCEdr_258104131131_microsoft%20sql%20server_e_c__49923480701_aud-394034018130:kwd-294748417622_) and higher
 - Microsoft SSMS ([SQL-Server Management Studio](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017)), optional but highly recommended
 
 ### Building the solution
-Before these project can run execute the attached scripts under Solution Explorer, solution items either in Visual Studio or in [SSMS](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017). 
+- Before these project can run execute the attached scripts under Solution Explorer, solution items either in Visual Studio or in [SSMS](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017). 
+- For SQL-Server operations change the connection string server name from KARENS-PC to the name of your server or if using SQL-Express use .\SQLEXPRESS.
 
 ### References
 - [Migrate an Access database to SQL Server](https://support.office.com/en-us/article/migrate-an-access-database-to-sql-server-7bac0438-498a-4f53-b17b-cc22fc42c979).
