@@ -161,6 +161,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="readme.md" />
     <None Include="Resources\UpArrow.png" />
   </ItemGroup>
   <ItemGroup>
