@@ -74,6 +74,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\ContactType.vb" />
+    <Compile Include="Classes\Country.vb" />
     <Compile Include="Classes\DataOperationsAccess.vb" />
     <Compile Include="Classes\DataOperationsSqlServer.vb" />
     <Compile Include="MainForm.vb">

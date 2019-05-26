@@ -158,8 +158,10 @@ Partial Class MainForm
         '
         'customerIdentifierAccessTextBox
         '
+        Me.customerIdentifierAccessTextBox.BackColor = System.Drawing.Color.Yellow
         Me.customerIdentifierAccessTextBox.Location = New System.Drawing.Point(139, 22)
         Me.customerIdentifierAccessTextBox.Name = "customerIdentifierAccessTextBox"
+        Me.customerIdentifierAccessTextBox.ReadOnly = True
         Me.customerIdentifierAccessTextBox.Size = New System.Drawing.Size(100, 20)
         Me.customerIdentifierAccessTextBox.TabIndex = 10
         '
@@ -240,7 +242,7 @@ Partial Class MainForm
         Me.GroupBox1.Size = New System.Drawing.Size(344, 354)
         Me.GroupBox1.TabIndex = 18
         Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Access"
+        Me.GroupBox1.Text = "Microsoft Access"
         '
         'InsertNewAccessRecordButton
         '
@@ -277,7 +279,7 @@ Partial Class MainForm
         Me.GroupBox2.Size = New System.Drawing.Size(344, 354)
         Me.GroupBox2.TabIndex = 19
         Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "SQL-Server"
+        Me.GroupBox2.Text = "Microsoft SQL-Server"
         '
         'InsertNewSqlServerRecordButton
         '
@@ -341,8 +343,10 @@ Partial Class MainForm
         '
         'customerIdentifierSqlServerTextBox
         '
+        Me.customerIdentifierSqlServerTextBox.BackColor = System.Drawing.Color.Yellow
         Me.customerIdentifierSqlServerTextBox.Location = New System.Drawing.Point(139, 22)
         Me.customerIdentifierSqlServerTextBox.Name = "customerIdentifierSqlServerTextBox"
+        Me.customerIdentifierSqlServerTextBox.ReadOnly = True
         Me.customerIdentifierSqlServerTextBox.Size = New System.Drawing.Size(100, 20)
         Me.customerIdentifierSqlServerTextBox.TabIndex = 10
         '
