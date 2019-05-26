@@ -337,6 +337,7 @@ Partial Class MainForm
         'customerNameSqlServerTextBox
         '
         Me.customerNameSqlServerTextBox.Location = New System.Drawing.Point(139, 46)
+        Me.customerNameSqlServerTextBox.MaxLength = 36
         Me.customerNameSqlServerTextBox.Name = "customerNameSqlServerTextBox"
         Me.customerNameSqlServerTextBox.Size = New System.Drawing.Size(167, 20)
         Me.customerNameSqlServerTextBox.TabIndex = 11

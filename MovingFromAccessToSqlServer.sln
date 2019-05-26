@@ -28,6 +28,8 @@ Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "BaseExtensionsLibrary", "Ba
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "BasicInsertNewRecord", "BasicInsertNewRecord\BasicInsertNewRecord.vbproj", "{DC5B472D-2F6C-4FAE-9ECC-A1C1765EA7C9}"
 EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "BaseClassValidator", "BaseClassValidator\BaseClassValidator.vbproj", "{D5AC9C39-887A-49F4-82C1-4E48AE2DE794}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -82,6 +84,14 @@ Global
 		{DC5B472D-2F6C-4FAE-9ECC-A1C1765EA7C9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DC5B472D-2F6C-4FAE-9ECC-A1C1765EA7C9}.Release|x86.ActiveCfg = Release|Any CPU
 		{DC5B472D-2F6C-4FAE-9ECC-A1C1765EA7C9}.Release|x86.Build.0 = Release|Any CPU
+		{D5AC9C39-887A-49F4-82C1-4E48AE2DE794}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5AC9C39-887A-49F4-82C1-4E48AE2DE794}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5AC9C39-887A-49F4-82C1-4E48AE2DE794}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D5AC9C39-887A-49F4-82C1-4E48AE2DE794}.Debug|x86.Build.0 = Debug|Any CPU
+		{D5AC9C39-887A-49F4-82C1-4E48AE2DE794}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5AC9C39-887A-49F4-82C1-4E48AE2DE794}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5AC9C39-887A-49F4-82C1-4E48AE2DE794}.Release|x86.ActiveCfg = Release|Any CPU
+		{D5AC9C39-887A-49F4-82C1-4E48AE2DE794}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -94,6 +104,7 @@ Global
 		{B700C4DC-8B90-4EDF-A46E-293A461704FF} = {DE2C21F6-5464-45E3-928A-E80AB3FF18A8}
 		{17EEE41C-33ED-4448-8520-B246BE08EB97} = {DE2C21F6-5464-45E3-928A-E80AB3FF18A8}
 		{DC5B472D-2F6C-4FAE-9ECC-A1C1765EA7C9} = {18F211FA-2DA0-4FE3-81D2-A0B1FA3F0FD3}
+		{D5AC9C39-887A-49F4-82C1-4E48AE2DE794} = {DE2C21F6-5464-45E3-928A-E80AB3FF18A8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9C5697D8-8137-4905-8ECF-840951377213}

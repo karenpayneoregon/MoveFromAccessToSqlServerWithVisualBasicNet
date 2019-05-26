@@ -4,7 +4,11 @@ Namespace Classes
     Public Class DataOperationsAccess
         Private ConnectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=NorthWind.accdb"
         Public LastException As Exception
-
+        ''' <summary>
+        ''' Load contact type reference table
+        ''' </summary>
+        ''' <param name="pUseSelect">True add "Select" as first time</param>
+        ''' <returns></returns>
         Public Function LoadContactTypes(Optional pUseSelect As Boolean = False) As List(Of ContactType)
             Dim contactTitleList = New List(Of ContactType)
             Dim selectStatement = "SELECT CT.ContactTypeIdentifier, CT.ContactTitle FROM ContactType AS CT;"
@@ -39,6 +43,11 @@ Namespace Classes
             Return contactTitleList
 
         End Function
+        ''' <summary>
+        ''' Load country reference table
+        ''' </summary>
+        ''' <param name="pUseSelect">True add "Select" as first time</param>
+        ''' <returns></returns>
         Public Function LoadCountries(Optional pUseSelect As Boolean = False) As List(Of Country)
             Dim countryList = New List(Of Country)
             Dim selectStatement = "SELECT CountryIdentifier, Country FROM Countries;"
