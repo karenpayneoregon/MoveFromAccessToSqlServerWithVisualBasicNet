@@ -36,6 +36,7 @@ Namespace Classes
             End Using
 
             Return customerDataTable
+
         End Function
 
     End Class

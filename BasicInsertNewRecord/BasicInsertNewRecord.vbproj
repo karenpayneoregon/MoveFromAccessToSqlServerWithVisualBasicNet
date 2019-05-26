@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{365214AB-59D8-4506-8767-E63B624E24B3}</ProjectGuid>
+    <ProjectGuid>{DC5B472D-2F6C-4FAE-9ECC-A1C1765EA7C9}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>BasicRead.My.MyApplication</StartupObject>
-    <RootNamespace>BasicRead</RootNamespace>
-    <AssemblyName>BasicRead</AssemblyName>
+    <StartupObject>BasicInsertNewRecord.My.MyApplication</StartupObject>
+    <RootNamespace>BasicInsertNewRecord</RootNamespace>
+    <AssemblyName>BasicInsertNewRecord</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -22,7 +22,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>BasicRead.xml</DocumentationFile>
+    <DocumentationFile>BasicInsertNewRecord.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -32,7 +32,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>BasicRead.xml</DocumentationFile>
+    <DocumentationFile>BasicInsertNewRecord.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
@@ -73,9 +73,9 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\ContactType.vb" />
     <Compile Include="Classes\DataOperationsAccess.vb" />
     <Compile Include="Classes\DataOperationsSqlServer.vb" />
-    <Compile Include="Hours.vb" />
     <Compile Include="MainForm.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -121,22 +121,11 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
-    <None Include="Readme.md" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="NorthWind.accdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\BaseExtensionsLibrary\BaseExtensionsLibrary.vbproj">
-      <Project>{17eee41c-33ed-4448-8520-b246be08eb97}</Project>
-      <Name>BaseExtensionsLibrary</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DataGridViewLibrary\DataGridViewLibrary.vbproj">
-      <Project>{b700c4dc-8b90-4edf-a46e-293a461704ff}</Project>
-      <Name>DataGridViewLibrary</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
