@@ -29,4 +29,3 @@ The first project in this respository is well out of place as it's much more adv
 - [System.Data.OleDb Namespace](https://docs.microsoft.com/en-us/dotnet/api/system.data.oledb?view=netframework-4.8).
 - NuGet package [BaseConnectionLibrary](https://www.nuget.org/packages/BaseConnectionLibrary/1.0.3#).
 - GitHub repository [Working with MS-Access with VB.NET](http://example.com).
-- 
