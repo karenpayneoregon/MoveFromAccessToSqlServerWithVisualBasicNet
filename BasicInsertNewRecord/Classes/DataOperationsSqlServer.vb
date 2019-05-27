@@ -1,9 +1,62 @@
 ﻿Imports System.Data.SqlClient
 
 Namespace Classes
+    ''' <summary>
+    ''' This class provides the basics to add a new customer record. In a future part of  this
+    ''' series there will be several improvements ranging from how the connection string is created
+    ''' to better exception handling
+    ''' </summary>
     Public Class DataOperationsSqlServer
+        ''' <summary>
+        ''' Data Source must match your server name of if using Express edition .\SQLEXPRESS
+        ''' </summary>
         Private ConnectionString As String = "Data Source=KARENS-PC;Initial Catalog=NorthWindAzureForInserts;Integrated Security=True"
+
         Public LastException As Exception
+        Public HasException As Boolean
+        Public ReadOnly Property IsSuccessful() As Boolean
+            Get
+                Return HasException = False
+            End Get
+        End Property
+        ''' <summary>
+        ''' Insert a new customer record
+        ''' </summary>
+        ''' <param name="pCustomer">Customer instance</param>
+        Public Sub InsertRecord(pCustomer As Customer)
+
+            HasException = False
+
+            ' statement was created in SSMS excluding the ending select which returns the new primary key
+            Dim insertStatement = "INSERT INTO dbo.Customers " &
+                                  "(CompanyName,ContactName,[Address],City,PostalCode,CountryIdentifier,ContactTypeIdentifier) " &
+                                  "VALUES (@CompanyName,@ContactName,@Street,@City,@PostalCode,@CountryIdentifier,@ContactTypeIdentifier);" &
+                                  "SELECT CAST(scope_identity() AS int);"
+
+
+            Using cn As New SqlConnection With {.ConnectionString = ConnectionString}
+                Using cmd As New SqlCommand With {.Connection = cn, .CommandText = insertStatement}
+
+                    cmd.Parameters.AddWithValue("@CompanyName", pCustomer.CompanyName)
+                    cmd.Parameters.AddWithValue("@ContactName", pCustomer.ContactName)
+                    cmd.Parameters.AddWithValue("@Street", pCustomer.Address)
+                    cmd.Parameters.AddWithValue("@City", pCustomer.City)
+                    cmd.Parameters.AddWithValue("@PostalCode", pCustomer.PostalCode)
+                    cmd.Parameters.AddWithValue("@CountryIdentifier", pCustomer.CountryIdentifier)
+                    cmd.Parameters.AddWithValue("@ContactTypeIdentifier", pCustomer.ContactTypeIdentifier)
+
+                    Try
+
+                        cn.Open()
+                        pCustomer.CustomerIdentifier = CInt(cmd.ExecuteScalar())
+
+                    Catch ex As Exception
+                        HasException = True
+                        LastException = ex
+                    End Try
+                End Using
+            End Using
+        End Sub
         Public Function LoadCustomerRecordsUsingDataTable() As DataTable
 
             Dim selectStatement =
@@ -70,7 +123,12 @@ Namespace Classes
             End Using
 
             If pUseSelect Then
-                contactTitleList.Insert(0, New ContactType() With {.ContactTypeIdentifier = 0, .ContactTitle = "Select"})
+                contactTitleList.Insert(0,
+                                        New ContactType() With
+                                           {
+                                           .ContactTypeIdentifier = 0,
+                                           .ContactTitle = "Select"
+                                           })
             End If
 
             Return contactTitleList
@@ -109,7 +167,12 @@ Namespace Classes
             End Using
 
             If pUseSelect Then
-                countryList.Insert(0, New Country() With {.CountryIdentifier = 0, .Name = "Select"})
+                countryList.Insert(0,
+                                   New Country() With
+                                      {
+                                      .CountryIdentifier = 0,
+                                      .Name = "Select"
+                                      })
             End If
 
             Return countryList

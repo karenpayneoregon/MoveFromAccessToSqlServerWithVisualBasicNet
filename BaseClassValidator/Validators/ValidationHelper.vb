@@ -6,7 +6,7 @@
         ''' <typeparam name="T"></typeparam>
         ''' <param name="entity"></param>
         ''' <returns></returns>
-        Public Shared Function ValidateEntity(Of T As Class)(ByVal entity As T) As EntityValidationResult
+        Public Shared Function ValidateEntity(Of T As Class)(entity As T) As EntityValidationResult
             Return (New EntityValidator(Of T)()).Validate(entity)
         End Function
     End Class

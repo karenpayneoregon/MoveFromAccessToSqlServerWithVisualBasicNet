@@ -1,5 +1,6 @@
 ﻿Imports System.Text
 Imports BaseClassValidator.Validators
+Imports BaseWindowsControlLibrary
 Imports BasicInsertNewRecord.Classes
 Imports BasicInsertNewRecord.LanguageExtensions
 
@@ -20,6 +21,19 @@ Public Class MainForm
         customerContactTypeSqlServerComboBox.DataSource = sqlServerOps.LoadContactTypes(True)
         countryCodeSqlServerComboBox.DataSource = sqlServerOps.LoadCountries(True)
 
+        '
+        ' Here if the user name is Karens we are ready for inserts, otherwise
+        ' controls must be populated.
+        '
+        If Environment.UserName = "Karens" Then
+            customerContactTypeAccessComboBox.SelectedIndex = 3
+            countryCodeAccessComboBox.SelectedIndex = 3
+            customerContactTypeSqlServerComboBox.SelectedIndex = 3
+            countryCodeSqlServerComboBox.SelectedIndex = 3
+        Else
+            Descendants(Of TextBox).ToList().ForEach(Sub(control) control.Text = "")
+        End If
+
     End Sub
     ''' <summary>
     ''' Insert new record, return new primary key.
@@ -36,12 +50,18 @@ Public Class MainForm
         Dim countryIdentifier = CType(countryCodeSqlServerComboBox.SelectedItem, Country).
                 CountryIdentifier
 
-        Dim customer As New Customer With 
+        Dim customer As New Customer With
                 {
-                    .CompanyName = customerNameSqlServerTextBox.Text, 
-                    .ContactTypeIdentifier = contactTypeIdentifier, 
-                    .CountryIdentifier = countryIdentifier
+                    .CompanyName = customerNameSqlServerTextBox.Text,
+                    .ContactTypeIdentifier = contactTypeIdentifier,
+                    .CountryIdentifier = countryIdentifier,
+                    .ContactFirstName = customerContactFirstNameSqlServerTextBox.Text,
+                    .ContactLastName = customerContactLastNameSqlServerTextBox.Text,
+                    .Address = customerAddressSqlServerTextBox.Text,
+                    .City = customerCitySqlServerTextBox.Text,
+                    .PostalCode = customerPostalSqlServerTextBox.Text
                 }
+
 
         Dim validationResult = ValidationHelper.ValidateEntity(customer)
 
@@ -56,6 +76,20 @@ Public Class MainForm
             MessageBox.Show(sb.ToString())
 
             Exit Sub
+
         End If
+
+        Dim sqlServerOps = New DataOperationsSqlServer
+        sqlServerOps.InsertRecord(customer)
+        '
+        ' If the insert is successful show the new key, if failed display the error message.
+        '
+        If sqlServerOps.IsSuccessful Then
+            customerIdentifierSqlServerTextBox.Text = customer.CustomerIdentifier.ToString()
+        Else
+            MessageBox.Show($"Failed to insert record{Environment.NewLine}{sqlServerOps.LastException.Message}")
+        End If
+
+
     End Sub
 End Class

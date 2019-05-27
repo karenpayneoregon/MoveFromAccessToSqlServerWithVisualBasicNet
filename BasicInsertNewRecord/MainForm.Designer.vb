@@ -305,6 +305,7 @@ Partial Class MainForm
         Me.customerPostalSqlServerTextBox.Name = "customerPostalSqlServerTextBox"
         Me.customerPostalSqlServerTextBox.Size = New System.Drawing.Size(167, 20)
         Me.customerPostalSqlServerTextBox.TabIndex = 16
+        Me.customerPostalSqlServerTextBox.Text = "95129"
         '
         'customerCitySqlServerTextBox
         '
@@ -312,6 +313,7 @@ Partial Class MainForm
         Me.customerCitySqlServerTextBox.Name = "customerCitySqlServerTextBox"
         Me.customerCitySqlServerTextBox.Size = New System.Drawing.Size(167, 20)
         Me.customerCitySqlServerTextBox.TabIndex = 15
+        Me.customerCitySqlServerTextBox.Text = "Portland"
         '
         'customerAddressSqlServerTextBox
         '
@@ -319,6 +321,7 @@ Partial Class MainForm
         Me.customerAddressSqlServerTextBox.Name = "customerAddressSqlServerTextBox"
         Me.customerAddressSqlServerTextBox.Size = New System.Drawing.Size(167, 20)
         Me.customerAddressSqlServerTextBox.TabIndex = 14
+        Me.customerAddressSqlServerTextBox.Text = "12 Market Street East"
         '
         'customerContactLastNameSqlServerTextBox
         '
@@ -326,6 +329,7 @@ Partial Class MainForm
         Me.customerContactLastNameSqlServerTextBox.Name = "customerContactLastNameSqlServerTextBox"
         Me.customerContactLastNameSqlServerTextBox.Size = New System.Drawing.Size(167, 20)
         Me.customerContactLastNameSqlServerTextBox.TabIndex = 13
+        Me.customerContactLastNameSqlServerTextBox.Text = "Williams"
         '
         'customerContactFirstNameSqlServerTextBox
         '
@@ -333,6 +337,7 @@ Partial Class MainForm
         Me.customerContactFirstNameSqlServerTextBox.Name = "customerContactFirstNameSqlServerTextBox"
         Me.customerContactFirstNameSqlServerTextBox.Size = New System.Drawing.Size(167, 20)
         Me.customerContactFirstNameSqlServerTextBox.TabIndex = 12
+        Me.customerContactFirstNameSqlServerTextBox.Text = "Mike"
         '
         'customerNameSqlServerTextBox
         '
@@ -341,6 +346,7 @@ Partial Class MainForm
         Me.customerNameSqlServerTextBox.Name = "customerNameSqlServerTextBox"
         Me.customerNameSqlServerTextBox.Size = New System.Drawing.Size(167, 20)
         Me.customerNameSqlServerTextBox.TabIndex = 11
+        Me.customerNameSqlServerTextBox.Text = "Mike's Auto detailing"
         '
         'customerIdentifierSqlServerTextBox
         '

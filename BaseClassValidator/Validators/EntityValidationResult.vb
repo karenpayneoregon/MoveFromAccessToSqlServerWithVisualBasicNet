@@ -2,15 +2,8 @@
 
 Namespace Validators
     Public Class EntityValidationResult
-        Private privateErrors As IList(Of ValidationResult)
-        Public Property Errors() As IList(Of ValidationResult)
-            Get
-                Return privateErrors
-            End Get
-            Private Set(value As IList(Of ValidationResult))
-                privateErrors = value
-            End Set
-        End Property
+        Public Property Errors As IList(Of ValidationResult)
+
         Public ReadOnly Property HasError() As Boolean
             Get
                 Return Errors.Count > 0
