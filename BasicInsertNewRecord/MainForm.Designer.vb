@@ -171,6 +171,7 @@ Partial Class MainForm
         Me.customerNameAccessTextBox.Name = "customerNameAccessTextBox"
         Me.customerNameAccessTextBox.Size = New System.Drawing.Size(167, 20)
         Me.customerNameAccessTextBox.TabIndex = 11
+        Me.customerNameAccessTextBox.Text = "Mike's Auto detailing"
         '
         'customerContactFirstNameAccessTextBox
         '
@@ -178,6 +179,7 @@ Partial Class MainForm
         Me.customerContactFirstNameAccessTextBox.Name = "customerContactFirstNameAccessTextBox"
         Me.customerContactFirstNameAccessTextBox.Size = New System.Drawing.Size(167, 20)
         Me.customerContactFirstNameAccessTextBox.TabIndex = 12
+        Me.customerContactFirstNameAccessTextBox.Text = "Mike"
         '
         'customerContactLastNameAccessTextBox
         '
@@ -185,6 +187,7 @@ Partial Class MainForm
         Me.customerContactLastNameAccessTextBox.Name = "customerContactLastNameAccessTextBox"
         Me.customerContactLastNameAccessTextBox.Size = New System.Drawing.Size(167, 20)
         Me.customerContactLastNameAccessTextBox.TabIndex = 13
+        Me.customerContactLastNameAccessTextBox.Text = "Williams"
         '
         'customerAddressAccessTextBox
         '
@@ -192,6 +195,7 @@ Partial Class MainForm
         Me.customerAddressAccessTextBox.Name = "customerAddressAccessTextBox"
         Me.customerAddressAccessTextBox.Size = New System.Drawing.Size(167, 20)
         Me.customerAddressAccessTextBox.TabIndex = 14
+        Me.customerAddressAccessTextBox.Text = "12 Market Street East"
         '
         'customerCityAccessTextBox
         '
@@ -199,6 +203,7 @@ Partial Class MainForm
         Me.customerCityAccessTextBox.Name = "customerCityAccessTextBox"
         Me.customerCityAccessTextBox.Size = New System.Drawing.Size(167, 20)
         Me.customerCityAccessTextBox.TabIndex = 15
+        Me.customerCityAccessTextBox.Text = "Portland"
         '
         'customerPostalAccessTextBox
         '
@@ -206,6 +211,7 @@ Partial Class MainForm
         Me.customerPostalAccessTextBox.Name = "customerPostalAccessTextBox"
         Me.customerPostalAccessTextBox.Size = New System.Drawing.Size(167, 20)
         Me.customerPostalAccessTextBox.TabIndex = 16
+        Me.customerPostalAccessTextBox.Text = "95129"
         '
         'countryCodeAccessComboBox
         '

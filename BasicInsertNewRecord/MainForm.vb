@@ -92,4 +92,54 @@ Public Class MainForm
 
 
     End Sub
+
+    Private Sub InsertNewAccessRecordButton_Click(sender As Object, e As EventArgs) _
+        Handles InsertNewAccessRecordButton.Click
+
+        Dim contactTypeIdentifier = CType(customerContactTypeAccessComboBox.SelectedItem, ContactType).
+                ContactTypeIdentifier
+        Dim countryIdentifier = CType(countryCodeAccessComboBox.SelectedItem, Country).
+                CountryIdentifier
+
+        Dim customer As New Customer With
+                {
+                .CompanyName = customerNameAccessTextBox.Text,
+                .ContactTypeIdentifier = contactTypeIdentifier,
+                .CountryIdentifier = countryIdentifier,
+                .ContactFirstName = customerContactFirstNameAccessTextBox.Text,
+                .ContactLastName = customerContactLastNameAccessTextBox.Text,
+                .Address = customerAddressAccessTextBox.Text,
+                .City = customerCityAccessTextBox.Text,
+                .PostalCode = customerPostalAccessTextBox.Text
+                }
+
+
+        Dim validationResult = ValidationHelper.ValidateEntity(customer)
+
+        If validationResult.HasError Then
+            Dim sb As New StringBuilder
+
+            sb.AppendLine("Validation issues")
+            For Each errorItem In validationResult.Errors
+                sb.AppendLine(errorItem.ErrorMessage.RemoveIndentifier.SplitCamelCase().RemoveDoubleSpaces)
+            Next
+
+            MessageBox.Show(sb.ToString())
+
+            Exit Sub
+
+        End If
+
+        Dim accessOps = New DataOperationsAccess
+        accessOps.InsertRecord(customer)
+        '
+        ' If the insert is successful show the new key, if failed display the error message.
+        '
+        If accessOps.IsSuccessful And customer.CustomerIdentifier <> -1 Then
+            customerIdentifierAccessTextBox.Text = customer.CustomerIdentifier.ToString()
+        Else
+            MessageBox.Show($"Failed to insert record{Environment.NewLine}{accessOps.LastException.Message}")
+        End If
+
+    End Sub
 End Class
