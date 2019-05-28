@@ -40,11 +40,14 @@ Public Class DataOperations
                 </SQL>.Value
 
         Dim dtResults = New DataTable
+
         Using cn As New SqlConnection With {.ConnectionString = ConnectionString}
             Using cmd As New SqlCommand With {.Connection = cn, .CommandText = selectStatement}
                 Try
+
                     cn.Open()
                     dtResults.Load(cmd.ExecuteReader())
+
                 Catch ex As Exception
                     mHasException = True
                     mLastException = ex

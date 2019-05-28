@@ -29,3 +29,9 @@ The first project in this respository is well out of place as it's much more adv
 - [System.Data.OleDb Namespace](https://docs.microsoft.com/en-us/dotnet/api/system.data.oledb?view=netframework-4.8).
 - NuGet package [BaseConnectionLibrary](https://www.nuget.org/packages/BaseConnectionLibrary/1.0.3#).
 - GitHub repository [Working with MS-Access with VB.NET](http://example.com).
+
+### TechNet Wiki
+
+[Part 1](https://social.technet.microsoft.com/wiki/contents/articles/52904.vb-net-upgrading-from-ms-access-to-sql-server-part-1-of-3.aspx)
+Part 2
+Part 3
