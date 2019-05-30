@@ -79,8 +79,7 @@
     <Compile Include="Classes\ContactType.vb" />
     <Compile Include="Classes\Country.vb" />
     <Compile Include="Classes\Customer.vb" />
-    <Compile Include="Classes\DataOperationsAccess.vb" />
-    <Compile Include="Classes\DataOperationsSqlServer.vb" />
+    <Compile Include="Classes\DataOperations.vb" />
     <Compile Include="MigrateContactsForm.vb">
       <SubType>Form</SubType>
     </Compile>

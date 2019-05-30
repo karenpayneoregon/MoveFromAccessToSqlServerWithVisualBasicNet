@@ -6,7 +6,7 @@ Namespace Classes
     ''' series there will be several improvements ranging from how the connection string is created
     ''' to better exception handling
     ''' </summary>
-    Public Class DataOperationsSqlServer
+    Public Class DataOperations
         ''' <summary>
         ''' Data Source must match your server name of if using Express edition .\SQLEXPRESS
         ''' </summary>

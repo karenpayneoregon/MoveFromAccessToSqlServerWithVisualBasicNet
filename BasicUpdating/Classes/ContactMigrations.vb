@@ -3,6 +3,10 @@ Imports System.Data.SqlClient
 Imports BaseConnectionLibrary.Classes
 
 Namespace Classes
+    ''' <summary>
+    ''' Note BaseExceptionProperties is not used but kept here in the
+    ''' event there were problems not seen in SSMS (see comments below)
+    ''' </summary>
     Public Class ContactMigrations
         Inherits BaseExceptionProperties
 
@@ -33,8 +37,10 @@ Namespace Classes
 
             Using cnAccess As New OleDbConnection With {.ConnectionString = AccessConnectionString}
                 Using cmdAccess As New OleDbCommand With {.Connection = cnAccess, .CommandText = accessCustomerContactsSelectStatement}
+
                     cnAccess.Open()
                     Dim reader = cmdAccess.ExecuteReader()
+
                     Using cnServer As New SqlConnection With {.ConnectionString = SqlServerConnectionString}
                         Using cmdServer As New SqlCommand With {.Connection = cnServer, .CommandText = sqlServerInsertContactStatement}
 
@@ -52,11 +58,13 @@ Namespace Classes
                                     cmdServer.Parameters("@LastName").Value = parts(1)
                                 End If
 
-                                Dim result = cmdServer.ExecuteNonQuery()
-                                Console.WriteLine(result)
+                                '
+                                ' No need to check result, do that in SSMS
+                                ' If there is an issue, low chance we can visually see in SSMS
+                                '
+                                cmdServer.ExecuteNonQuery()
 
                             End While
-
                         End Using
                     End Using
                 End Using
