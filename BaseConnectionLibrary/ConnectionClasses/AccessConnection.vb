@@ -1,4 +1,5 @@
 ﻿Imports System.Data.OleDb
+Imports BaseConnectionLibrary.Classes
 Imports BaseConnectionLibrary.Interfaces
 Imports BaseConnectionLibrary.LanguageExtensions
 

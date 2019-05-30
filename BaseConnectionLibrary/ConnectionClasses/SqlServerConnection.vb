@@ -1,4 +1,5 @@
-﻿Imports BaseConnectionLibrary.Interfaces
+﻿Imports BaseConnectionLibrary.Classes
+Imports BaseConnectionLibrary.Interfaces
 Imports BaseConnectionLibrary.LanguageExtensions
 
 Namespace ConnectionClasses

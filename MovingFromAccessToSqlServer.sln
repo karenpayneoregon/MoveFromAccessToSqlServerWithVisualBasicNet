@@ -34,6 +34,8 @@ Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "SqlServerUtilities", "SqlSe
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "BaseWindowsControlLibrary", "BaseWindowsControlLibrary\BaseWindowsControlLibrary.vbproj", "{53FA2F4D-0490-4D76-BEF5-58E745CA9ABF}"
 EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "BasicUpdating", "BasicUpdating\BasicUpdating.vbproj", "{FED2C9FA-065A-4D79-8EB3-6E2111105532}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -112,6 +114,14 @@ Global
 		{53FA2F4D-0490-4D76-BEF5-58E745CA9ABF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{53FA2F4D-0490-4D76-BEF5-58E745CA9ABF}.Release|x86.ActiveCfg = Release|Any CPU
 		{53FA2F4D-0490-4D76-BEF5-58E745CA9ABF}.Release|x86.Build.0 = Release|Any CPU
+		{FED2C9FA-065A-4D79-8EB3-6E2111105532}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FED2C9FA-065A-4D79-8EB3-6E2111105532}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FED2C9FA-065A-4D79-8EB3-6E2111105532}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{FED2C9FA-065A-4D79-8EB3-6E2111105532}.Debug|x86.Build.0 = Debug|Any CPU
+		{FED2C9FA-065A-4D79-8EB3-6E2111105532}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FED2C9FA-065A-4D79-8EB3-6E2111105532}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FED2C9FA-065A-4D79-8EB3-6E2111105532}.Release|x86.ActiveCfg = Release|Any CPU
+		{FED2C9FA-065A-4D79-8EB3-6E2111105532}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -127,6 +137,7 @@ Global
 		{D5AC9C39-887A-49F4-82C1-4E48AE2DE794} = {DE2C21F6-5464-45E3-928A-E80AB3FF18A8}
 		{B7F1E785-FCF1-4D33-B36D-986FF01FF036} = {DE2C21F6-5464-45E3-928A-E80AB3FF18A8}
 		{53FA2F4D-0490-4D76-BEF5-58E745CA9ABF} = {DE2C21F6-5464-45E3-928A-E80AB3FF18A8}
+		{FED2C9FA-065A-4D79-8EB3-6E2111105532} = {18F211FA-2DA0-4FE3-81D2-A0B1FA3F0FD3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9C5697D8-8137-4905-8ECF-840951377213}

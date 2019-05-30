@@ -47,6 +47,7 @@ Public Class MainForm
 
         Dim contactTypeIdentifier = CType(customerContactTypeSqlServerComboBox.SelectedItem, ContactType).
                 ContactTypeIdentifier
+
         Dim countryIdentifier = CType(countryCodeSqlServerComboBox.SelectedItem, Country).
                 CountryIdentifier
 
