@@ -28,7 +28,7 @@ Namespace Classes
         ''' Date of birth of the person
         ''' </summary>
         ''' <returns></returns>
-        <Required(ErrorMessage:="{0} is required"), DataType(DataType.Text)>
+        <Required(ErrorMessage:="{0} is required and valid {1}"), DataType(DataType.DateTime)>
         Public Property BirthDate() As DateTime?
         ''' <summary>
         ''' Method to calculate person's age. There is no check for BirthDate

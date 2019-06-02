@@ -4,6 +4,12 @@ Imports BasicClassValidation.LanguageExtensions
 Imports BasicClassValidation.MockData
 
 Public Class Form1
+    ''' <summary>
+    ''' Example for validation.
+    ''' Mocked up several behind the scene properties
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
     Private Sub ValidatePersonButton_Click(sender As Object, e As EventArgs) Handles ValidatePersonButton.Click
         Dim birthDate = $"{birthDateMonthComboBox.Text}/{daysComboBox.Text}/{yearsComboBox.Text}"
 
@@ -14,7 +20,7 @@ Public Class Form1
                 .BirthDate = birthDate.TryParse(),
                 .ModifiedByUserId = 12,
                 .ModifiedDate = Now
-                }
+        }
 
         Dim validationResult As EntityValidationResult = ValidationHelper.ValidateEntity(person)
         If validationResult.HasError Then

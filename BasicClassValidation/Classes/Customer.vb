@@ -44,7 +44,17 @@ Namespace Classes
         <Country(SelectCountry:=0, ErrorMessage:="Must select a country")>
         Public Property CountryIdentifier As Integer?
         Public Property Phone As String
-        Public Property Fax As String
+        ''' <summary>
+        ''' Password
+        ''' </summary>
+        ''' <returns></returns>
+        Public Property Password() As String
+        ''' <summary>
+        ''' Used to confirm password which requires two TextBox controls
+        ''' </summary>
+        ''' <returns></returns>
+        <Compare("Customer.Password", ErrorMessage:="The fields Password and Password Confirmation should be equals")>
+        Public Property PasswordConfirmation() As String
         ''' <summary>
         ''' Foreign key to ContactType table
         ''' </summary>
