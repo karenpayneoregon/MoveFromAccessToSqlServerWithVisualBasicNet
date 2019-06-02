@@ -28,10 +28,11 @@ Namespace Classes
             HasException = False
 
             ' statement was created in SSMS excluding the ending select which returns the new primary key
-            Dim insertStatement = "INSERT INTO dbo.Customers " &
-                                  "(CompanyName,ContactName,[Address],City,PostalCode,CountryIdentifier,ContactTypeIdentifier) " &
-                                  "VALUES (@CompanyName,@ContactName,@Street,@City,@PostalCode,@CountryIdentifier,@ContactTypeIdentifier);" &
-                                  "SELECT CAST(scope_identity() AS int);"
+            Dim insertStatement =
+                    "INSERT INTO dbo.Customers " &
+                    "(CompanyName,ContactName,[Address],City,PostalCode,CountryIdentifier,ContactTypeIdentifier) " &
+                    "VALUES (@CompanyName,@ContactName,@Street,@City,@PostalCode,@CountryIdentifier,@ContactTypeIdentifier);" &
+                    "SELECT CAST(scope_identity() AS int);"
 
 
             Using cn As New SqlConnection With {.ConnectionString = ConnectionString}
@@ -48,6 +49,7 @@ Namespace Classes
                     Try
 
                         cn.Open()
+
                         pCustomer.CustomerIdentifier = CInt(cmd.ExecuteScalar())
 
                     Catch ex As Exception
@@ -119,6 +121,7 @@ Namespace Classes
                         cmd.CommandText = selectStatement
 
                         cn.Open()
+
                         Dim reader = cmd.ExecuteReader()
 
                         While reader.Read()
@@ -163,6 +166,7 @@ Namespace Classes
                         cmd.CommandText = selectStatement
 
                         cn.Open()
+
                         Dim reader = cmd.ExecuteReader()
 
                         While reader.Read()
@@ -206,6 +210,7 @@ Namespace Classes
                         cmd.CommandText = selectStatement
 
                         cn.Open()
+
                         Dim reader = cmd.ExecuteReader()
 
                         While reader.Read()

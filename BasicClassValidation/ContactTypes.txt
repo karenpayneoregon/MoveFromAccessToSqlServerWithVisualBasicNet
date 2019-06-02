@@ -1,0 +1,12 @@
+﻿1,Accounting Manager
+2,Assistant Sales Agent
+3,Assistant Sales Representative
+4,Marketing Assistant
+5,Marketing Manager
+6,Order Administrator
+7,Owner
+8,Owner/Marketing Assistant
+9,Sales Agent
+10,Sales Associate
+11,Sales Manager
+12,Sales Representative
