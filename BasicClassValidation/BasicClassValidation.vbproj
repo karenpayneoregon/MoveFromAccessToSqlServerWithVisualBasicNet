@@ -74,6 +74,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Class1.vb" />
     <Compile Include="Classes\ContactType.vb" />
     <Compile Include="Classes\Country.vb" />
     <Compile Include="Classes\Customer.vb" />
