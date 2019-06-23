@@ -74,6 +74,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationNamespaceAdditions\MyDialogs.vb" />
     <Compile Include="Classes\Contact.vb" />
     <Compile Include="Classes\ContactMigrations.vb" />
     <Compile Include="Classes\ContactType.vb" />
@@ -140,7 +141,7 @@
     <Content Include="NorthWind.accdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="UpdateAndIsertScript.sql" />
+    <Content Include="UpdateAndInsertScript.sql" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BaseClassValidator\BaseClassValidator.vbproj">

@@ -75,6 +75,7 @@
   <ItemGroup>
     <Compile Include="Classes\DataOperationsAccess.vb" />
     <Compile Include="Classes\DataOperationsSqlServer.vb" />
+    <Compile Include="DataGridViewExtensions.vb" />
     <Compile Include="Hours.vb" />
     <Compile Include="MainForm.vb">
       <SubType>Form</SubType>

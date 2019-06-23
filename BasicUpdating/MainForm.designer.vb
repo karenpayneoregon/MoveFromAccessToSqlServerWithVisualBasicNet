@@ -24,7 +24,7 @@ Partial Class MainForm
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MainForm))
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.SqlServerBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.BindingNavigatorAddNewItem1 = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorCountItem1 = New System.Windows.Forms.ToolStripLabel()
@@ -37,15 +37,15 @@ Partial Class MainForm
         Me.BindingNavigatorMoveNextItem1 = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorMoveLastItem1 = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorSeparator5 = New System.Windows.Forms.ToolStripSeparator()
-        Me.InsertNewSqlServerRecordButton = New System.Windows.Forms.Button()
+        Me.UpdateSqlServerRecordButton = New System.Windows.Forms.Button()
         Me.countryCodeSqlServerComboBox = New System.Windows.Forms.ComboBox()
-        Me.customerPostalSqlServerTextBox = New System.Windows.Forms.TextBox()
-        Me.customerCitySqlServerTextBox = New System.Windows.Forms.TextBox()
-        Me.customerAddressSqlServerTextBox = New System.Windows.Forms.TextBox()
-        Me.customerContactLastNameSqlServerTextBox = New System.Windows.Forms.TextBox()
-        Me.customerContactFirstNameSqlServerTextBox = New System.Windows.Forms.TextBox()
-        Me.customerNameSqlServerTextBox = New System.Windows.Forms.TextBox()
-        Me.customerIdentifierSqlServerTextBox = New System.Windows.Forms.TextBox()
+        Me.PostalCodeTextBox = New System.Windows.Forms.TextBox()
+        Me.CityTextBox = New System.Windows.Forms.TextBox()
+        Me.StreetTextBox = New System.Windows.Forms.TextBox()
+        Me.LastNameTextBox = New System.Windows.Forms.TextBox()
+        Me.FirstNameTextBox = New System.Windows.Forms.TextBox()
+        Me.CompanyNameTextBox = New System.Windows.Forms.TextBox()
+        Me.customerIdentifierTextBox = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.customerContactTypeSqlServerComboBox = New System.Windows.Forms.ComboBox()
         Me.Label11 = New System.Windows.Forms.Label()
@@ -56,45 +56,45 @@ Partial Class MainForm
         Me.Label16 = New System.Windows.Forms.Label()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.Label18 = New System.Windows.Forms.Label()
-        Me.GroupBox2.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
         CType(Me.SqlServerBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SqlServerBindingNavigator.SuspendLayout()
         Me.SuspendLayout()
         '
-        'GroupBox2
+        'GroupBox1
         '
-        Me.GroupBox2.Controls.Add(Me.SqlServerBindingNavigator)
-        Me.GroupBox2.Controls.Add(Me.InsertNewSqlServerRecordButton)
-        Me.GroupBox2.Controls.Add(Me.countryCodeSqlServerComboBox)
-        Me.GroupBox2.Controls.Add(Me.customerPostalSqlServerTextBox)
-        Me.GroupBox2.Controls.Add(Me.customerCitySqlServerTextBox)
-        Me.GroupBox2.Controls.Add(Me.customerAddressSqlServerTextBox)
-        Me.GroupBox2.Controls.Add(Me.customerContactLastNameSqlServerTextBox)
-        Me.GroupBox2.Controls.Add(Me.customerContactFirstNameSqlServerTextBox)
-        Me.GroupBox2.Controls.Add(Me.customerNameSqlServerTextBox)
-        Me.GroupBox2.Controls.Add(Me.customerIdentifierSqlServerTextBox)
-        Me.GroupBox2.Controls.Add(Me.Label10)
-        Me.GroupBox2.Controls.Add(Me.customerContactTypeSqlServerComboBox)
-        Me.GroupBox2.Controls.Add(Me.Label11)
-        Me.GroupBox2.Controls.Add(Me.Label12)
-        Me.GroupBox2.Controls.Add(Me.Label13)
-        Me.GroupBox2.Controls.Add(Me.Label14)
-        Me.GroupBox2.Controls.Add(Me.Label15)
-        Me.GroupBox2.Controls.Add(Me.Label16)
-        Me.GroupBox2.Controls.Add(Me.Label17)
-        Me.GroupBox2.Controls.Add(Me.Label18)
-        Me.GroupBox2.Location = New System.Drawing.Point(12, 12)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(344, 395)
-        Me.GroupBox2.TabIndex = 19
-        Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "Microsoft SQL-Server"
+        Me.GroupBox1.Controls.Add(Me.SqlServerBindingNavigator)
+        Me.GroupBox1.Controls.Add(Me.UpdateSqlServerRecordButton)
+        Me.GroupBox1.Controls.Add(Me.countryCodeSqlServerComboBox)
+        Me.GroupBox1.Controls.Add(Me.PostalCodeTextBox)
+        Me.GroupBox1.Controls.Add(Me.CityTextBox)
+        Me.GroupBox1.Controls.Add(Me.StreetTextBox)
+        Me.GroupBox1.Controls.Add(Me.LastNameTextBox)
+        Me.GroupBox1.Controls.Add(Me.FirstNameTextBox)
+        Me.GroupBox1.Controls.Add(Me.CompanyNameTextBox)
+        Me.GroupBox1.Controls.Add(Me.customerIdentifierTextBox)
+        Me.GroupBox1.Controls.Add(Me.Label10)
+        Me.GroupBox1.Controls.Add(Me.customerContactTypeSqlServerComboBox)
+        Me.GroupBox1.Controls.Add(Me.Label11)
+        Me.GroupBox1.Controls.Add(Me.Label12)
+        Me.GroupBox1.Controls.Add(Me.Label13)
+        Me.GroupBox1.Controls.Add(Me.Label14)
+        Me.GroupBox1.Controls.Add(Me.Label15)
+        Me.GroupBox1.Controls.Add(Me.Label16)
+        Me.GroupBox1.Controls.Add(Me.Label17)
+        Me.GroupBox1.Controls.Add(Me.Label18)
+        Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(344, 395)
+        Me.GroupBox1.TabIndex = 19
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Microsoft SQL-Server"
         '
         'SqlServerBindingNavigator
         '
         Me.SqlServerBindingNavigator.AddNewItem = Me.BindingNavigatorAddNewItem1
         Me.SqlServerBindingNavigator.CountItem = Me.BindingNavigatorCountItem1
-        Me.SqlServerBindingNavigator.DeleteItem = Me.BindingNavigatorDeleteItem1
+        Me.SqlServerBindingNavigator.DeleteItem = Nothing
         Me.SqlServerBindingNavigator.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BindingNavigatorMoveFirstItem1, Me.BindingNavigatorMovePreviousItem1, Me.BindingNavigatorSeparator3, Me.BindingNavigatorPositionItem1, Me.BindingNavigatorCountItem1, Me.BindingNavigatorSeparator4, Me.BindingNavigatorMoveNextItem1, Me.BindingNavigatorMoveLastItem1, Me.BindingNavigatorSeparator5, Me.BindingNavigatorAddNewItem1, Me.BindingNavigatorDeleteItem1})
         Me.SqlServerBindingNavigator.Location = New System.Drawing.Point(3, 16)
         Me.SqlServerBindingNavigator.MoveFirstItem = Me.BindingNavigatorMoveFirstItem1
@@ -192,14 +192,14 @@ Partial Class MainForm
         Me.BindingNavigatorSeparator5.Name = "BindingNavigatorSeparator5"
         Me.BindingNavigatorSeparator5.Size = New System.Drawing.Size(6, 25)
         '
-        'InsertNewSqlServerRecordButton
+        'UpdateSqlServerRecordButton
         '
-        Me.InsertNewSqlServerRecordButton.Location = New System.Drawing.Point(265, 343)
-        Me.InsertNewSqlServerRecordButton.Name = "InsertNewSqlServerRecordButton"
-        Me.InsertNewSqlServerRecordButton.Size = New System.Drawing.Size(75, 23)
-        Me.InsertNewSqlServerRecordButton.TabIndex = 18
-        Me.InsertNewSqlServerRecordButton.Text = "Insert"
-        Me.InsertNewSqlServerRecordButton.UseVisualStyleBackColor = True
+        Me.UpdateSqlServerRecordButton.Location = New System.Drawing.Point(265, 343)
+        Me.UpdateSqlServerRecordButton.Name = "UpdateSqlServerRecordButton"
+        Me.UpdateSqlServerRecordButton.Size = New System.Drawing.Size(75, 23)
+        Me.UpdateSqlServerRecordButton.TabIndex = 18
+        Me.UpdateSqlServerRecordButton.Text = "Update"
+        Me.UpdateSqlServerRecordButton.UseVisualStyleBackColor = True
         '
         'countryCodeSqlServerComboBox
         '
@@ -210,63 +210,63 @@ Partial Class MainForm
         Me.countryCodeSqlServerComboBox.Size = New System.Drawing.Size(167, 21)
         Me.countryCodeSqlServerComboBox.TabIndex = 17
         '
-        'customerPostalSqlServerTextBox
+        'PostalCodeTextBox
         '
-        Me.customerPostalSqlServerTextBox.Location = New System.Drawing.Point(141, 246)
-        Me.customerPostalSqlServerTextBox.Name = "customerPostalSqlServerTextBox"
-        Me.customerPostalSqlServerTextBox.Size = New System.Drawing.Size(167, 20)
-        Me.customerPostalSqlServerTextBox.TabIndex = 16
-        Me.customerPostalSqlServerTextBox.Text = "95129"
+        Me.PostalCodeTextBox.Location = New System.Drawing.Point(141, 246)
+        Me.PostalCodeTextBox.Name = "PostalCodeTextBox"
+        Me.PostalCodeTextBox.Size = New System.Drawing.Size(167, 20)
+        Me.PostalCodeTextBox.TabIndex = 16
+        Me.PostalCodeTextBox.Text = "95129"
         '
-        'customerCitySqlServerTextBox
+        'CityTextBox
         '
-        Me.customerCitySqlServerTextBox.Location = New System.Drawing.Point(141, 217)
-        Me.customerCitySqlServerTextBox.Name = "customerCitySqlServerTextBox"
-        Me.customerCitySqlServerTextBox.Size = New System.Drawing.Size(167, 20)
-        Me.customerCitySqlServerTextBox.TabIndex = 15
-        Me.customerCitySqlServerTextBox.Text = "Portland"
+        Me.CityTextBox.Location = New System.Drawing.Point(141, 217)
+        Me.CityTextBox.Name = "CityTextBox"
+        Me.CityTextBox.Size = New System.Drawing.Size(167, 20)
+        Me.CityTextBox.TabIndex = 15
+        Me.CityTextBox.Text = "Portland"
         '
-        'customerAddressSqlServerTextBox
+        'StreetTextBox
         '
-        Me.customerAddressSqlServerTextBox.Location = New System.Drawing.Point(141, 188)
-        Me.customerAddressSqlServerTextBox.Name = "customerAddressSqlServerTextBox"
-        Me.customerAddressSqlServerTextBox.Size = New System.Drawing.Size(167, 20)
-        Me.customerAddressSqlServerTextBox.TabIndex = 14
-        Me.customerAddressSqlServerTextBox.Text = "12 Market Street East"
+        Me.StreetTextBox.Location = New System.Drawing.Point(141, 188)
+        Me.StreetTextBox.Name = "StreetTextBox"
+        Me.StreetTextBox.Size = New System.Drawing.Size(167, 20)
+        Me.StreetTextBox.TabIndex = 14
+        Me.StreetTextBox.Text = "12 Market Street East"
         '
-        'customerContactLastNameSqlServerTextBox
+        'LastNameTextBox
         '
-        Me.customerContactLastNameSqlServerTextBox.Location = New System.Drawing.Point(141, 128)
-        Me.customerContactLastNameSqlServerTextBox.Name = "customerContactLastNameSqlServerTextBox"
-        Me.customerContactLastNameSqlServerTextBox.Size = New System.Drawing.Size(167, 20)
-        Me.customerContactLastNameSqlServerTextBox.TabIndex = 13
-        Me.customerContactLastNameSqlServerTextBox.Text = "Williams"
+        Me.LastNameTextBox.Location = New System.Drawing.Point(141, 128)
+        Me.LastNameTextBox.Name = "LastNameTextBox"
+        Me.LastNameTextBox.Size = New System.Drawing.Size(167, 20)
+        Me.LastNameTextBox.TabIndex = 13
+        Me.LastNameTextBox.Text = "Williams"
         '
-        'customerContactFirstNameSqlServerTextBox
+        'FirstNameTextBox
         '
-        Me.customerContactFirstNameSqlServerTextBox.Location = New System.Drawing.Point(141, 100)
-        Me.customerContactFirstNameSqlServerTextBox.Name = "customerContactFirstNameSqlServerTextBox"
-        Me.customerContactFirstNameSqlServerTextBox.Size = New System.Drawing.Size(167, 20)
-        Me.customerContactFirstNameSqlServerTextBox.TabIndex = 12
-        Me.customerContactFirstNameSqlServerTextBox.Text = "Mike"
+        Me.FirstNameTextBox.Location = New System.Drawing.Point(141, 100)
+        Me.FirstNameTextBox.Name = "FirstNameTextBox"
+        Me.FirstNameTextBox.Size = New System.Drawing.Size(167, 20)
+        Me.FirstNameTextBox.TabIndex = 12
+        Me.FirstNameTextBox.Text = "Mike"
         '
-        'customerNameSqlServerTextBox
+        'CompanyNameTextBox
         '
-        Me.customerNameSqlServerTextBox.Location = New System.Drawing.Point(141, 73)
-        Me.customerNameSqlServerTextBox.MaxLength = 36
-        Me.customerNameSqlServerTextBox.Name = "customerNameSqlServerTextBox"
-        Me.customerNameSqlServerTextBox.Size = New System.Drawing.Size(167, 20)
-        Me.customerNameSqlServerTextBox.TabIndex = 11
-        Me.customerNameSqlServerTextBox.Text = "Mike's Auto detailing"
+        Me.CompanyNameTextBox.Location = New System.Drawing.Point(141, 73)
+        Me.CompanyNameTextBox.MaxLength = 36
+        Me.CompanyNameTextBox.Name = "CompanyNameTextBox"
+        Me.CompanyNameTextBox.Size = New System.Drawing.Size(167, 20)
+        Me.CompanyNameTextBox.TabIndex = 11
+        Me.CompanyNameTextBox.Text = "Mike's Auto detailing"
         '
-        'customerIdentifierSqlServerTextBox
+        'customerIdentifierTextBox
         '
-        Me.customerIdentifierSqlServerTextBox.BackColor = System.Drawing.Color.Yellow
-        Me.customerIdentifierSqlServerTextBox.Location = New System.Drawing.Point(141, 49)
-        Me.customerIdentifierSqlServerTextBox.Name = "customerIdentifierSqlServerTextBox"
-        Me.customerIdentifierSqlServerTextBox.ReadOnly = True
-        Me.customerIdentifierSqlServerTextBox.Size = New System.Drawing.Size(100, 20)
-        Me.customerIdentifierSqlServerTextBox.TabIndex = 10
+        Me.customerIdentifierTextBox.BackColor = System.Drawing.Color.Yellow
+        Me.customerIdentifierTextBox.Location = New System.Drawing.Point(141, 49)
+        Me.customerIdentifierTextBox.Name = "customerIdentifierTextBox"
+        Me.customerIdentifierTextBox.ReadOnly = True
+        Me.customerIdentifierTextBox.Size = New System.Drawing.Size(100, 20)
+        Me.customerIdentifierTextBox.TabIndex = 10
         '
         'Label10
         '
@@ -363,28 +363,29 @@ Partial Class MainForm
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(375, 431)
-        Me.Controls.Add(Me.GroupBox2)
+        Me.Controls.Add(Me.GroupBox1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "MainForm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Demo adding new records"
-        Me.GroupBox2.ResumeLayout(False)
-        Me.GroupBox2.PerformLayout()
+        Me.Text = "Demo updating records"
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         CType(Me.SqlServerBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SqlServerBindingNavigator.ResumeLayout(False)
         Me.SqlServerBindingNavigator.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents GroupBox2 As GroupBox
-    Friend WithEvents InsertNewSqlServerRecordButton As Button
+    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents UpdateSqlServerRecordButton As Button
     Friend WithEvents countryCodeSqlServerComboBox As ComboBox
-    Friend WithEvents customerPostalSqlServerTextBox As TextBox
-    Friend WithEvents customerCitySqlServerTextBox As TextBox
-    Friend WithEvents customerAddressSqlServerTextBox As TextBox
-    Friend WithEvents customerContactLastNameSqlServerTextBox As TextBox
-    Friend WithEvents customerContactFirstNameSqlServerTextBox As TextBox
-    Friend WithEvents customerNameSqlServerTextBox As TextBox
-    Friend WithEvents customerIdentifierSqlServerTextBox As TextBox
+    Friend WithEvents PostalCodeTextBox As TextBox
+    Friend WithEvents CityTextBox As TextBox
+    Friend WithEvents StreetTextBox As TextBox
+    Friend WithEvents LastNameTextBox As TextBox
+    Friend WithEvents FirstNameTextBox As TextBox
+    Friend WithEvents CompanyNameTextBox As TextBox
+    Friend WithEvents customerIdentifierTextBox As TextBox
     Friend WithEvents Label10 As Label
     Friend WithEvents customerContactTypeSqlServerComboBox As ComboBox
     Friend WithEvents Label11 As Label

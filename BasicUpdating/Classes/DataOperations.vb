@@ -98,6 +98,7 @@ Namespace Classes
                         customerDataTable.Columns("ModifiedDate").ColumnMapping = MappingType.Hidden
 
                     Catch ex As Exception
+                        HasException = True
                         LastException = ex
                     End Try
                 End Using
@@ -106,6 +107,40 @@ Namespace Classes
             Return customerDataTable
 
         End Function
+        ''' <summary>
+        ''' Remove Customer record by customer identifier, in this case
+        ''' from a prompt when pressing the delete button in a BindingNavigator
+        ''' </summary>
+        ''' <param name="pCustomerIdentifier"></param>
+        ''' <returns></returns>
+        ''' <remarks>
+        ''' In this case when dealing with child tables, orders and order details
+        ''' the delete rules must be set to cascading. This is done easy by creating
+        ''' a database diagram in SSMS, select the relations and then properties,
+        ''' set the delete rule to cascade.
+        ''' </remarks>
+        Public Function RemoveRecord(pCustomerIdentifier As Integer) As Boolean
+            HasException = False
+
+            Dim selectStatement = "DELETE FROM dbo.Customers WHERE CustomerIdentifier = @CustomerIdentifier"
+
+            Using cn As New SqlConnection With {.ConnectionString = ConnectionString}
+                Using cmd As New SqlCommand With {.Connection = cn}
+                    Try
+                        cmd.CommandText = selectStatement
+                        cmd.Parameters.AddWithValue("@CustomerIdentifier", pCustomerIdentifier)
+                        cn.Open()
+                        cmd.ExecuteNonQuery()
+                    Catch ex As Exception
+                        HasException = True
+                        LastException = ex
+                    End Try
+                End Using
+            End Using
+
+            Return IsSuccessful
+        End Function
+
         ''' <summary>
         ''' Load contact type reference table
         ''' </summary>
@@ -151,6 +186,7 @@ Namespace Classes
             Return contactTitleList
 
         End Function
+
         ''' <summary>
         ''' Load country reference table
         ''' </summary>

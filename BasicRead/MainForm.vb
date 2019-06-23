@@ -1,4 +1,5 @@
 ﻿Imports System.Globalization
+Imports System.IO
 Imports System.Text
 Imports BaseExtensionsLibrary
 Imports BasicRead.Classes
@@ -50,14 +51,8 @@ Public Class MainForm
     End Sub
 
     Private Sub closeApplicationButton_Click(sender As Object, e As EventArgs) Handles closeApplicationButton.Click
-
-        Dim hours = New Hours()
-        Dim range = hours.Range(TimeIncrement.Quarterly).ToList().Select(Function(time) time)
-        Console.WriteLine()
-        timeComboBox.DataSource = range.ToList
-
-        Dim result = Now.RoundDateToMinuteInterval(30, RoundingDirection.RoundUp)
-        timeComboBox.SelectedIndex = timeComboBox.FindString(result.ToString("h:mm tt"))
+        Dim fileName As String = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Exported.csv")
+        customersAccessDataGridView.ExportRows(fileName)
 
         'Dim rowIndex As Integer = 1
         'Dim result = String.Join(",",
