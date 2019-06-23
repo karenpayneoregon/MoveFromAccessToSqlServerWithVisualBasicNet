@@ -59,8 +59,7 @@ Namespace Classes
                 End Using
             End Using
         End Sub
-        Public Function LoadCustomerRecordsUsingDataTable() As DataTable
-
+        Public Function CustomerSelectStatement() As String
             Dim selectStatement =
                     <SQL>
                         SELECT Cust.CustomerIdentifier ,
@@ -79,15 +78,17 @@ Namespace Classes
                         FROM   dbo.Customers AS Cust
                                INNER JOIN dbo.ContactType AS CT ON Cust.ContactTypeIdentifier = CT.ContactTypeIdentifier
                                INNER JOIN dbo.Contacts ON Cust.ContactId = Contacts.ContactId
-                               INNER JOIN dbo.Countries ON Cust.CountryIdentifier = Countries.CountryIdentifier;
+                               INNER JOIN dbo.Countries ON Cust.CountryIdentifier = Countries.CountryIdentifier
                     </SQL>.Value
-
+            Return selectStatement
+        End Function
+        Public Function LoadCustomerRecordsUsingDataTable() As DataTable
             Dim customerDataTable = New DataTable
 
             Using cn As New SqlConnection With {.ConnectionString = ConnectionString}
                 Using cmd As New SqlCommand With {.Connection = cn}
                     Try
-                        cmd.CommandText = selectStatement
+                        cmd.CommandText = CustomerSelectStatement()
 
                         cn.Open()
 
@@ -96,7 +97,6 @@ Namespace Classes
                         customerDataTable.Columns("CustomerIdentifier").ColumnMapping = MappingType.Hidden
                         customerDataTable.Columns("ContactTypeIdentifier").ColumnMapping = MappingType.Hidden
                         customerDataTable.Columns("ModifiedDate").ColumnMapping = MappingType.Hidden
-
                     Catch ex As Exception
                         HasException = True
                         LastException = ex
@@ -106,6 +106,122 @@ Namespace Classes
 
             Return customerDataTable
 
+        End Function
+        Public ReadOnly Property UpdateStatement() As String
+            Get
+                Return _
+                <SQL>
+                    UPDATE [dbo].[Customers]
+                       SET [CompanyName] = @CompanyName
+                          ,[ContactId] = @ContactId
+                          ,[Address] = @Street
+                          ,[City] = @City
+                          ,[PostalCode] = @PostalCode
+                          ,[CountryIdentifier] = @CountryIdentifier
+                          ,[ContactTypeIdentifier] = @ContactTypeIdentifier
+                     WHERE CustomerIdentifier = @CustomerIdentifier
+                </SQL>.Value
+            End Get
+        End Property
+        Public Function UpdateContactRecord(pContact As Contact) As UpdateResult
+            HasException = False
+            Dim selectStatement = "SELECT COUNT(ContactId) FROM NorthWindAzureForInserts.dbo.Contacts WHERE ContactId = @ContactId"
+
+            Dim updateStatement = "UPDATE dbo.Contacts SET FirstName = @FirstName,LastName = @LastName WHERE ContactId = @ContactId"
+
+            Using cn As New SqlConnection With {.ConnectionString = ConnectionString}
+                Using cmd As New SqlCommand With {.Connection = cn}
+                    cmd.CommandText = selectStatement
+
+                    Try
+
+                        cn.Open()
+
+                        cmd.Parameters.AddWithValue("@ContactId", pContact.ContactId)
+                        Dim count = CInt(cmd.ExecuteScalar())
+
+                        If count = 1 Then
+
+                            cmd.Parameters.Clear()
+
+                            cmd.Parameters.AddWithValue("@FirstName", pContact.FirstName)
+                            cmd.Parameters.AddWithValue("@LastName", pContact.LastName)
+                            cmd.Parameters.AddWithValue("@ContactId", pContact.ContactId)
+
+                            cmd.CommandText = updateStatement
+
+                            Dim test = cmd.ExecuteNonQuery()
+
+                            Return UpdateResult.Success
+
+                        Else
+                            Return UpdateResult.NotFound
+                        End If
+                    Catch ex As Exception
+                        HasException = True
+                        LastException = ex
+                        Return UpdateResult.Failed
+                    End Try
+                End Using
+            End Using
+        End Function
+        Public Function UpdateCurrentCustomerRecord(pDataRow As DataRow) As UpdateResult
+            HasException = False
+
+            Using cn As New SqlConnection With {.ConnectionString = ConnectionString}
+                Using cmd As New SqlCommand With {.Connection = cn}
+                    Try
+
+                        ' no parameter, if this were a web app we need a parameter to prevent SQL injection
+                        cmd.CommandText = $"{CustomerSelectStatement()} WHERE Cust.CustomerIdentifier = {pDataRow.Field(Of Integer)("CustomerIdentifier")}"
+
+                        cn.Open()
+                        Dim reader = cmd.ExecuteReader()
+
+                        If reader.HasRows Then
+
+                            reader.Read()
+
+                            '
+                            ' Compare current record in the caller (form) to the current record
+                            ' in the database.
+                            '
+                            Dim values(reader.FieldCount - 1) As Object
+                            Dim fieldCount As Integer = reader.GetValues(values)
+                            Dim readValues = String.Join(",", values)
+                            Dim currentValues = String.Join(",", pDataRow.ItemArray)
+
+                            If String.Join(",", values) <> String.Join(",", pDataRow.ItemArray) Then
+
+                                reader.Close()
+
+                                cmd.CommandText = UpdateStatement()
+
+                                cmd.Parameters.AddWithValue("@CompanyName", pDataRow.Field(Of String)("CompanyName"))
+
+                                cmd.Parameters.AddWithValue("@ContactId", pDataRow.Field(Of Integer)("ContactId"))
+                                cmd.Parameters.AddWithValue("@Street", pDataRow.Field(Of String)("Street"))
+                                cmd.Parameters.AddWithValue("@City", pDataRow.Field(Of String)("City"))
+                                cmd.Parameters.AddWithValue("@PostalCode", pDataRow.Field(Of String)("PostalCode"))
+                                cmd.Parameters.AddWithValue("@CountryIdentifier", pDataRow.Field(Of Integer)("CountryIdentifier"))
+                                cmd.Parameters.AddWithValue("@ContactTypeIdentifier", pDataRow.Field(Of Integer)("ContactTypeIdentifier"))
+                                cmd.Parameters.AddWithValue("@CustomerIdentifier", pDataRow.Field(Of Integer)("CustomerIdentifier"))
+
+                                cmd.ExecuteNonQuery()
+                                Return UpdateResult.Success
+                            Else
+                                Return UpdateResult.NoChanges
+                            End If
+                        Else
+                            Return UpdateResult.NotFound
+                        End If
+                    Catch ex As Exception
+                        HasException = True
+                        LastException = ex
+                        Return UpdateResult.Failed
+                    End Try
+                End Using
+            End Using
         End Function
         ''' <summary>
         ''' Remove Customer record by customer identifier, in this case

@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DC5B472D-2F6C-4FAE-9ECC-A1C1765EA7C9}</ProjectGuid>
+    <ProjectGuid>{FED2C9FA-065A-4D79-8EB3-6E2111105532}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>BasicInsertNewRecord.My.MyApplication</StartupObject>
-    <RootNamespace>BasicInsertNewRecord</RootNamespace>
-    <AssemblyName>BasicInsertNewRecord</AssemblyName>
+    <StartupObject>BasicUpdating.My.MyApplication</StartupObject>
+    <RootNamespace>BasicUpdating</RootNamespace>
+    <AssemblyName>BasicUpdating</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -22,7 +22,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>BasicInsertNewRecord.xml</DocumentationFile>
+    <DocumentationFile>BasicUpdating.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -32,7 +32,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>BasicInsertNewRecord.xml</DocumentationFile>
+    <DocumentationFile>BasicUpdating.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
@@ -48,9 +48,6 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DataProviderCommandHelpers, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DataProviderCommandHelpers.1.0.0\lib\net46\DataProviderCommandHelpers.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
@@ -77,17 +74,26 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationNamespaceAdditions\MyDialogs.vb" />
+    <Compile Include="Classes\Contact.vb" />
+    <Compile Include="Classes\ContactMigrations.vb" />
     <Compile Include="Classes\ContactType.vb" />
     <Compile Include="Classes\Country.vb" />
     <Compile Include="Classes\Customer.vb" />
-    <Compile Include="Classes\DataOperationsAccess.vb" />
-    <Compile Include="Classes\DataOperationsSqlServer.vb" />
-    <Compile Include="LanguageExtensions\StringExtensions.vb" />
-    <Compile Include="MainForm.vb">
+    <Compile Include="Classes\DataOperations.vb" />
+    <Compile Include="Classes\UpdateResults.vb" />
+    <Compile Include="MigrateContactsForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.vb">
+    <Compile Include="MigrateContactsForm.Designer.vb">
+      <DependentUpon>MigrateContactsForm.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LanguageExtensions\StringExtensions.vb" />
+    <Compile Include="MainForm.designer.vb">
       <DependentUpon>MainForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -110,6 +116,9 @@
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MigrateContactsForm.resx">
+      <DependentUpon>MigrateContactsForm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -128,21 +137,25 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
-    <None Include="packages.config" />
+    <None Include="readme.md" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="NorthWind.accdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="NorthWindInserts.sql" />
+    <Content Include="UpdateAndInsertScript.sql" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BaseClassValidator\BaseClassValidator.vbproj">
-      <Project>{d5ac9c39-887a-49f4-82c1-4e48ae2de794}</Project>
+      <Project>{D5AC9C39-887A-49F4-82C1-4E48AE2DE794}</Project>
       <Name>BaseClassValidator</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BaseConnectionLibrary\BaseConnectionLibrary.vbproj">
+      <Project>{3C200ADF-618C-4D36-98FB-B5298AFFA934}</Project>
+      <Name>BaseConnectionLibrary</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BaseWindowsControlLibrary\BaseWindowsControlLibrary.vbproj">
-      <Project>{53fa2f4d-0490-4d76-bef5-58e745ca9abf}</Project>
+      <Project>{53FA2F4D-0490-4D76-BEF5-58E745CA9ABF}</Project>
       <Name>BaseWindowsControlLibrary</Name>
     </ProjectReference>
   </ItemGroup>
