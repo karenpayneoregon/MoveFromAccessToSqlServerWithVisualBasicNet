@@ -29,7 +29,8 @@ Namespace Classes
                          .Street = customer.Address,
                          .City = customer.City,
                          .PostalCode = customer.PostalCode,
-                         .CountryIdentifier = customer.CountryIdentifier, .CountyName = customer.Country.Name
+                         .CountryIdentifier = customer.CountryIdentifier,
+                         .CountyName = customer.Country.Name
                          }).ToList()
 
             End Using

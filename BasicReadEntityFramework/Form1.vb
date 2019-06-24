@@ -7,7 +7,7 @@ Public Class Form1
     ''' Provides sort, filtering of data source
     ''' https://github.com/waynebloss/BindingListView
     ''' </summary>
-    Private view As BindingListView(Of CustomerEntity)
+    Private customerView As BindingListView(Of CustomerEntity)
 
     ''' <summary>
     ''' Read data using entity framework, hide primary key
@@ -19,13 +19,11 @@ Public Class Form1
     Private Sub Form1_Shown(sender As Object, e As EventArgs) Handles Me.Shown
 
         Dim ops As New DataOperations
-        view = New BindingListView(Of CustomerEntity)(ops.ReadCustomers())
+        customerView = New BindingListView(Of CustomerEntity)(ops.ReadCustomers())
 
-        DataGridView1.DataSource = view
+        DataGridView1.DataSource = customerView
 
-        DataGridView1.Columns.Cast(Of DataGridViewColumn).
-            Where(Function(column) column.Name.Contains("Identifier")).
-            ToList().
+        DataGridView1.Columns.Cast(Of DataGridViewColumn).Where(Function(column) column.Name.Contains("Identifier")).ToList().
             ForEach(Sub(col)
                         col.Visible = False
                     End Sub)

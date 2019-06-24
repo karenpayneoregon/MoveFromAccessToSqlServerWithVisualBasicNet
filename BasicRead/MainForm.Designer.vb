@@ -27,7 +27,6 @@ Partial Class MainForm
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.customersSqlServerDataGridView = New System.Windows.Forms.DataGridView()
         Me.closeApplicationButton = New System.Windows.Forms.Button()
-        Me.timeComboBox = New System.Windows.Forms.ComboBox()
         CType(Me.customersAccessDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -82,20 +81,11 @@ Partial Class MainForm
         Me.closeApplicationButton.Text = "Exit"
         Me.closeApplicationButton.UseVisualStyleBackColor = True
         '
-        'timeComboBox
-        '
-        Me.timeComboBox.FormattingEnabled = True
-        Me.timeComboBox.Location = New System.Drawing.Point(52, 489)
-        Me.timeComboBox.Name = "timeComboBox"
-        Me.timeComboBox.Size = New System.Drawing.Size(121, 21)
-        Me.timeComboBox.TabIndex = 4
-        '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1157, 529)
-        Me.Controls.Add(Me.timeComboBox)
         Me.Controls.Add(Me.closeApplicationButton)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
@@ -116,5 +106,4 @@ Partial Class MainForm
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents customersSqlServerDataGridView As DataGridView
     Friend WithEvents closeApplicationButton As Button
-    Friend WithEvents timeComboBox As ComboBox
 End Class
