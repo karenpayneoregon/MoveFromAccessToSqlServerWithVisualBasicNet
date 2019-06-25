@@ -9,16 +9,16 @@ Namespace Classes
 
             Dim selectStatement =
                     <SQL>
-                    SELECT 
-                        C.CustomerIdentifier, 
-                        C.CompanyName, 
-                        C.ContactName, 
-                        C.ContactTypeIdentifier, 
-                        CT.ContactTitle, 
-                        C.Country
-                    FROM Customers AS C 
-                    INNER JOIN ContactType AS CT ON C.ContactTypeIdentifier = CT.ContactTypeIdentifier
-                    WHERE C.ContactTypeIdentifier = ? AND C.Country = ?;
+                        SELECT 
+                            C.CustomerIdentifier, 
+                            C.CompanyName, 
+                            C.ContactName, 
+                            C.ContactTypeIdentifier, 
+                            CT.ContactTitle, 
+                            C.Country
+                        FROM Customers AS C 
+                        INNER JOIN ContactType AS CT ON C.ContactTypeIdentifier = CT.ContactTypeIdentifier
+                        WHERE C.ContactTypeIdentifier = @ContactTypeIdentifier AND C.Country = @Country;
                     </SQL>.Value
 
             Dim customerDataTable = New DataTable
@@ -27,8 +27,8 @@ Namespace Classes
                 Using cmd As New OleDbCommand With {.Connection = cn}
                     Try
                         cmd.CommandText = selectStatement
-                        cmd.Parameters.AddWithValue("?", pContactTypeIdentifier)
-                        cmd.Parameters.AddWithValue("?", pCountry)
+                        cmd.Parameters.AddWithValue("@ContactTypeIdentifier", pContactTypeIdentifier)
+                        cmd.Parameters.AddWithValue("@Country", pCountry)
                         cn.Open()
 
                         customerDataTable.Load(cmd.ExecuteReader())

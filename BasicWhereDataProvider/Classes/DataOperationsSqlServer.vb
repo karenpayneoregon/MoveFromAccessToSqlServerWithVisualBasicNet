@@ -26,8 +26,8 @@ Namespace Classes
                 Using cmd As New SqlCommand With {.Connection = cn}
                     Try
                         cmd.CommandText = selectStatement
-                        cmd.Parameters.AddWithValue("@ContactTypeIdentifier", pContactTypeIdentifier)
                         cmd.Parameters.AddWithValue("@Country", pCountry)
+                        cmd.Parameters.AddWithValue("@ContactTypeIdentifier", pContactTypeIdentifier)
                         cn.Open()
 
                         customerDataTable.Load(cmd.ExecuteReader())
