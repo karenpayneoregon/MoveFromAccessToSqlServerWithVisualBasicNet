@@ -33,5 +33,5 @@ The first project in this respository is well out of place as it's much more adv
 ### TechNet Wiki
 
 [Part 1](https://social.technet.microsoft.com/wiki/contents/articles/52904.vb-net-upgrading-from-ms-access-to-sql-server-part-1-of-3.aspx)
-Part 2
+[Part 2](https://social.technet.microsoft.com/wiki/contents/articles/53065.vb-net-upgrading-from-ms-access-to-sql-server-part-23.aspx)
 Part 3
