@@ -6,6 +6,8 @@ Imports BasicRead.Classes
 Imports DataGridViewLibrary
 
 Public Class MainForm
+    Private bindingSourceAccess As New BindingSource
+
     Private Sub MainForm_Shown(sender As Object, e As EventArgs) Handles Me.Shown
         Dim accessOperations As New DataOperationsAccess
 
@@ -14,7 +16,9 @@ Public Class MainForm
 
         If accessOperations.LastException Is Nothing Then
             ' If no run time exceptions populate DataGridView with the DataTable
-            customersAccessDataGridView.DataSource = customersFromAccessDataTable
+            bindingSourceAccess.DataSource = customersFromAccessDataTable
+            customersAccessDataGridView.DataSource = bindingSourceAccess
+            AccessCompanyNameLabel.DataBindings.Add("Text", bindingSourceAccess, "CompanyName", False, DataSourceUpdateMode.OnValidation)
 
             ' Expand all columns so all data is visible
             customersAccessDataGridView.ExpandColumns

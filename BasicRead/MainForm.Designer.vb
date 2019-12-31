@@ -27,6 +27,7 @@ Partial Class MainForm
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.customersSqlServerDataGridView = New System.Windows.Forms.DataGridView()
         Me.closeApplicationButton = New System.Windows.Forms.Button()
+        Me.AccessCompanyNameLabel = New System.Windows.Forms.Label()
         CType(Me.customersAccessDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -81,11 +82,21 @@ Partial Class MainForm
         Me.closeApplicationButton.Text = "Exit"
         Me.closeApplicationButton.UseVisualStyleBackColor = True
         '
+        'AccessCompanyNameLabel
+        '
+        Me.AccessCompanyNameLabel.AutoSize = True
+        Me.AccessCompanyNameLabel.Location = New System.Drawing.Point(31, 502)
+        Me.AccessCompanyNameLabel.Name = "AccessCompanyNameLabel"
+        Me.AccessCompanyNameLabel.Size = New System.Drawing.Size(39, 13)
+        Me.AccessCompanyNameLabel.TabIndex = 4
+        Me.AccessCompanyNameLabel.Text = "Label1"
+        '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1157, 529)
+        Me.Controls.Add(Me.AccessCompanyNameLabel)
         Me.Controls.Add(Me.closeApplicationButton)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
@@ -98,6 +109,7 @@ Partial Class MainForm
         Me.GroupBox2.ResumeLayout(False)
         CType(Me.customersSqlServerDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -106,4 +118,5 @@ Partial Class MainForm
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents customersSqlServerDataGridView As DataGridView
     Friend WithEvents closeApplicationButton As Button
+    Friend WithEvents AccessCompanyNameLabel As Label
 End Class
